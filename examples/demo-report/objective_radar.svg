@@ -21,7 +21,7 @@
 <text x="179.3" y="410.9" text-anchor="middle" font-family="Arial" font-size="13">O3: Interpret a solution i</text>
 <text x="179.3" y="427.9" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#2356e8">75.0%</text>
 <polygon points="380.0,136.7 506.2,367.8 256.6,366.3" fill="#2356e8" fill-opacity=".28" stroke="#2356e8" stroke-width="4" stroke-linejoin="round"/>
-<polygon points="380.0,152.5 495.2,361.5 264.8,361.5" fill="#f59e0b" fill-opacity=".08" stroke="#d97706" stroke-width="2" stroke-dasharray="7 5"/>
+<polygon points="380.0,152.5 495.2,361.5 264.8,361.5" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="7 5"/>
 <circle cx="380.0" cy="136.7" r="7" fill="#2356e8" stroke="white" stroke-width="2"><title>O1: Identify solution of a linear system; test; observed 83.3%; points 15.0/18.0; meeting target 3/6; target 75.0%</title></circle>
 <circle cx="506.2" cy="367.8" r="7" fill="#2356e8" stroke="white" stroke-width="2"><title>O2: Solve systems using substitution or elimination; test; observed 76.7%; points 23.0/30.0; meeting target 4/6; target 70.0%</title></circle>
 <circle cx="256.6" cy="366.3" r="7" fill="#2356e8" stroke="white" stroke-width="2"><title>O3: Interpret a solution in context; test; observed 75.0%; points 27.0/36.0; meeting target 3/6; target 70.0%</title></circle>

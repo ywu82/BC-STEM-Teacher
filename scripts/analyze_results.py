@@ -117,7 +117,7 @@ def svg_radar(report, filename, assessment=None):
         parts +=[f'<line x1="{cx}" y1="{cy}" x2="{x:.1f}" y2="{y:.1f}" stroke="#9ca3af"/>',f'<text x="{lx:.1f}" y="{ly:.1f}" text-anchor="middle" font-family="Arial" font-size="13">{html.escape(oid)}: {html.escape(obj["label"][:22])}</text>',f'<text x="{lx:.1f}" y="{ly+17:.1f}" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#2356e8">{fmt_pct(obj["by_assessment"].get(typ,{}).get("observed_percent"))}</text>']
     values=[o['by_assessment'].get(typ,{}).get('observed_percent') or 0 for _,o in objectives]
     parts.append(f'<polygon points="{points(values)}" fill="#2356e8" fill-opacity=".28" stroke="#2356e8" stroke-width="4" stroke-linejoin="round"/>')
-    parts.append(f'<polygon points="{points([o["target_percent"] for _,o in objectives])}" fill="#f59e0b" fill-opacity=".08" stroke="#d97706" stroke-width="2" stroke-dasharray="7 5"/>')
+    parts.append(f'<polygon points="{points([o["target_percent"] for _,o in objectives])}" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="7 5"/>')
     for i,(oid,obj) in enumerate(objectives):
         rec=obj['by_assessment'].get(typ,{});x,y=point(i,rec.get('observed_percent') or 0);detail=f'{oid}: {obj["label"]}; {typ}; observed {fmt_pct(rec.get("observed_percent"))}; points {rec.get("earned_points")}/{rec.get("possible_points")}; meeting target {rec.get("n_meeting_target")}/{rec.get("n_complete_objective")}; target {fmt_pct(obj["target_percent"])}'
         parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="7" fill="#2356e8" stroke="white" stroke-width="2"><title>{html.escape(detail)}</title></circle>')
