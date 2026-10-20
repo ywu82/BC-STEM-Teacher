@@ -1,7 +1,7 @@
 import unittest,sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from analyze_results import validate_and_analyze
+from analyze_results import validate_and_analyze,interactive_radar,svg_radar
 class TestAnalysis(unittest.TestCase):
  def setUp(self):
   self.items=[{'item_id':'D1','assessment_type':'diagnostic','objective_id':'O1','max_points':'2'}, {'item_id':'Q1','assessment_type':'quiz','objective_id':'O1','max_points':'4'}]
@@ -16,4 +16,15 @@ class TestAnalysis(unittest.TestCase):
   with self.assertRaisesRegex(ValueError,'duplicate'):validate_and_analyze([row,row],self.items,self.cfg)
  def test_overmax_rejected(self):
   with self.assertRaisesRegex(ValueError,'outside bounds'):validate_and_analyze([{'student_id':'P01','assessment_type':'quiz','item_id':'Q1','points':'5'}],self.items,self.cfg)
+ def test_interactive_radar_contains_evidence_without_student_ids(self):
+  from tempfile import TemporaryDirectory
+  r=validate_and_analyze([{'student_id':'P01','assessment_type':'diagnostic','item_id':'D1','points':'1'},{'student_id':'P01','assessment_type':'quiz','item_id':'Q1','points':'4'}],self.items,self.cfg)
+  with TemporaryDirectory() as d:
+   p=Path(d)/'objective_radar.html';interactive_radar(r,p);content=p.read_text(encoding='utf-8')
+   self.assertIn('Interactive objective attainment radar',content)
+   self.assertIn('Meeting target',content)
+   self.assertNotIn('P01',content)
+   s=Path(d)/'objective_radar.svg';svg_radar(r,s);svg=s.read_text(encoding='utf-8')
+   self.assertIn('Objective attainment radar',svg)
+   self.assertNotIn('P01',svg)
 if __name__=='__main__':unittest.main()

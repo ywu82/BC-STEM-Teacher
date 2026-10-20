@@ -26,6 +26,10 @@ Course: Foundations of Mathematics and Pre-calculus 10. Students represented: 6.
 
 ![Objective attainment](objective_attainment.svg)
 
+![Objective radar](objective_radar.svg)
+
+[Open the interactive objective radar](objective_radar.html) — choose an assessment and hover or focus each point for exact evidence.
+
 **Pre/post growth: NOT COMPARABLE.** Not calculated: different pre/post items, constructs or scales may not be equivalent. Comparable anchor design and matched cohort validation required.
 
 Thresholds shown are teacher-defined planning indicators, not BC provincial letter-grade cutoffs. Diagnostic questions sample prerequisites; post-tests sample taught objectives; raw percentages are not equivalent constructs.

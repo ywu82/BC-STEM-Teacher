@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="620" viewBox="0 0 760 620" role="img" aria-label="Objective attainment radar for test">
+<rect width="100%" height="100%" fill="white"/>
+<text x="24" y="32" font-family="Arial" font-size="20" font-weight="bold">Objective attainment radar — Test</text>
+<polygon points="380.0,257.0 412.9,314.0 347.1,314.0" fill="none" stroke="#d1d5db" stroke-width="1"/>
+<text x="385" y="269.0" font-family="Arial" font-size="11" fill="#6b7280">20%</text>
+<polygon points="380.0,219.0 445.8,333.0 314.2,333.0" fill="none" stroke="#d1d5db" stroke-width="1"/>
+<text x="385" y="231.0" font-family="Arial" font-size="11" fill="#6b7280">40%</text>
+<polygon points="380.0,181.0 478.7,352.0 281.3,352.0" fill="none" stroke="#d1d5db" stroke-width="1"/>
+<text x="385" y="193.0" font-family="Arial" font-size="11" fill="#6b7280">60%</text>
+<polygon points="380.0,143.0 511.6,371.0 248.4,371.0" fill="none" stroke="#d1d5db" stroke-width="1"/>
+<text x="385" y="155.0" font-family="Arial" font-size="11" fill="#6b7280">80%</text>
+<polygon points="380.0,105.0 544.5,390.0 215.5,390.0" fill="none" stroke="#d1d5db" stroke-width="1"/>
+<text x="385" y="117.0" font-family="Arial" font-size="11" fill="#6b7280">100%</text>
+<line x1="380" y1="295" x2="380.0" y2="105.0" stroke="#9ca3af"/>
+<text x="380.0" y="63.2" text-anchor="middle" font-family="Arial" font-size="13">O1: Identify solution of a</text>
+<text x="380.0" y="80.2" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#2356e8">83.3%</text>
+<line x1="380" y1="295" x2="544.5" y2="390.0" stroke="#9ca3af"/>
+<text x="580.7" y="410.9" text-anchor="middle" font-family="Arial" font-size="13">O2: Solve systems using su</text>
+<text x="580.7" y="427.9" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#2356e8">76.7%</text>
+<line x1="380" y1="295" x2="215.5" y2="390.0" stroke="#9ca3af"/>
+<text x="179.3" y="410.9" text-anchor="middle" font-family="Arial" font-size="13">O3: Interpret a solution i</text>
+<text x="179.3" y="427.9" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#2356e8">75.0%</text>
+<polygon points="380.0,136.7 506.2,367.8 256.6,366.3" fill="#2356e8" fill-opacity=".28" stroke="#2356e8" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="380.0,152.5 495.2,361.5 264.8,361.5" fill="#f59e0b" fill-opacity=".08" stroke="#d97706" stroke-width="2" stroke-dasharray="7 5"/>
+<circle cx="380.0" cy="136.7" r="7" fill="#2356e8" stroke="white" stroke-width="2"><title>O1: Identify solution of a linear system; test; observed 83.3%; points 15.0/18.0; meeting target 3/6; target 75.0%</title></circle>
+<circle cx="506.2" cy="367.8" r="7" fill="#2356e8" stroke="white" stroke-width="2"><title>O2: Solve systems using substitution or elimination; test; observed 76.7%; points 23.0/30.0; meeting target 4/6; target 70.0%</title></circle>
+<circle cx="256.6" cy="366.3" r="7" fill="#2356e8" stroke="white" stroke-width="2"><title>O3: Interpret a solution in context; test; observed 75.0%; points 27.0/36.0; meeting target 3/6; target 70.0%</title></circle>
+<line x1="24" y1="586" x2="48" y2="586" stroke="#2356e8" stroke-width="4"/><text x="56" y="591" font-family="Arial" font-size="12">Observed</text>
+<line x1="150" y1="586" x2="174" y2="586" stroke="#d97706" stroke-width="2" stroke-dasharray="7 5"/><text x="182" y="591" font-family="Arial" font-size="12">Teacher target</text>
+</svg>
