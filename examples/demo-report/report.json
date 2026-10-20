@@ -8,6 +8,8 @@
       "n_partial": 0,
       "n_missing": 0,
       "possible_points_per_complete_student": 6.0,
+      "highest_percent": 83.33,
+      "lowest_percent": 16.67,
       "mean_percent": 47.22,
       "median_percent": 50.0,
       "distribution": {
@@ -22,6 +24,8 @@
       "n_partial": 0,
       "n_missing": 0,
       "possible_points_per_complete_student": 10.0,
+      "highest_percent": 100.0,
+      "lowest_percent": 50.0,
       "mean_percent": 75.0,
       "median_percent": 75.0,
       "distribution": {
@@ -36,6 +40,8 @@
       "n_partial": 0,
       "n_missing": 0,
       "possible_points_per_complete_student": 14.0,
+      "highest_percent": 100.0,
+      "lowest_percent": 57.14,
       "mean_percent": 77.38,
       "median_percent": 78.57,
       "distribution": {
@@ -149,5 +155,14 @@
   },
   "warnings": [],
   "growth_comparable": false,
-  "growth_note": "Not calculated: different pre/post items, constructs or scales may not be equivalent. Comparable anchor design and matched cohort validation required."
+  "growth_note": "Not calculated: different pre/post items, constructs or scales may not be equivalent. Comparable anchor design and matched cohort validation required.",
+  "teaching_recommendations": {
+    "assessment_type": "test",
+    "items": [
+      "Test scores span 57.14%\u2013100.00% (42.86 points). Use flexible grouping: targeted scaffolded practice for students needing support and extension/application tasks for students already secure; confirm needs with item-level work before grouping.",
+      "O1 (Identify solution of a linear system): aggregate attainment is 83.33% against a 75.00% target, but only 3/6 students met it. Keep whole-class instruction moving while providing a targeted small-group check and additional aligned practice for students below target.",
+      "O2 (Solve systems using substitution or elimination): aggregate attainment is 76.67% against a 70.00% target, but only 4/6 students met it. Keep whole-class instruction moving while providing a targeted small-group check and additional aligned practice for students below target.",
+      "O3 (Interpret a solution in context): aggregate attainment is 75.00% against a 70.00% target, but only 3/6 students met it. Keep whole-class instruction moving while providing a targeted small-group check and additional aligned practice for students below target."
+    ]
+  }
 }

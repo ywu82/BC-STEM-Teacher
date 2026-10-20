@@ -80,6 +80,8 @@ Use the following step and branch labels consistently:
    - **Step 6B — Final unit test**
 7. **Step 7 — Import anonymized student results**
 8. **Step 8 — Analyze results and generate reports, charts, and objective-attainment evidence**
+   - Report the highest, lowest, mean, and median percentage for every assessment using complete responses, alongside missingness and score distributions.
+   - Provide evidence-linked teaching recommendations for objective gaps, uneven attainment, differentiation, reteaching, and the next aligned check for learning.
    - On hosts with interactive chat widgets, display a radar chart in the conversation with one axis and visible percentage per objective; hover or keyboard focus reveals the exact evidence and local target.
    - On other hosts, provide the same interactive chart as `objective_radar.html` plus `objective_radar.svg` and an objective table, so the report remains portable.
 

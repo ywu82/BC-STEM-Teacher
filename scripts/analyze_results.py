@@ -46,7 +46,7 @@ def validate_and_analyze(results, items, cfg):
             if set(present)==set(relevant):complete.append((sid,sum(present.values())/total*100))
             elif present:incomplete.append(sid)
         values=[v for _,v in complete]
-        result['assessments'][typ]={'n_complete':len(values),'n_partial':len(incomplete),'n_missing':len(by_student)-len(values)-len(incomplete),'possible_points_per_complete_student':total,'mean_percent':round(statistics.mean(values),2) if values else None,'median_percent':round(statistics.median(values),2) if values else None,'distribution':{'0-49':sum(v<50 for v in values),'50-69':sum(50<=v<70 for v in values),'70-84':sum(70<=v<85 for v in values),'85-100':sum(v>=85 for v in values)}}
+        result['assessments'][typ]={'n_complete':len(values),'n_partial':len(incomplete),'n_missing':len(by_student)-len(values)-len(incomplete),'possible_points_per_complete_student':total,'highest_percent':round(max(values),2) if values else None,'lowest_percent':round(min(values),2) if values else None,'mean_percent':round(statistics.mean(values),2) if values else None,'median_percent':round(statistics.median(values),2) if values else None,'distribution':{'0-49':sum(v<50 for v in values),'50-69':sum(50<=v<70 for v in values),'70-84':sum(70<=v<85 for v in values),'85-100':sum(v>=85 for v in values)}}
         if incomplete: warnings.append(f'{typ}: {len(incomplete)} partial student assessment(s) excluded from overall mean; objective scores based on observed item responses only.')
     for typ in typs:
         for o in cfg['objectives']:
@@ -61,7 +61,30 @@ def validate_and_analyze(results, items, cfg):
             result['objectives'].setdefault(oid,{'label':o['label'],'target_percent':target[oid]*100,'by_assessment':{}})['by_assessment'][typ]={'earned_points':round(a,2),'possible_points':round(b,2),'observed_percent':pct,'n_observed':len(sids),'n_complete_objective':len(flags),'n_meeting_target':sum(flags),'pct_students_meeting_target':round(100*sum(flags)/len(flags),2) if flags else None}
             if not b:warnings.append(f'{oid}/{typ}: no item scores; no attainment estimate')
     if not results:warnings.append('No responses found; no attainment estimates available.')
+    result['teaching_recommendations']=build_teaching_recommendations(result)
     return result
+
+def build_teaching_recommendations(report):
+    """Create conservative, evidence-linked next teaching actions."""
+    types=list(report['assessments'])
+    if not types:return {'assessment_type':None,'items':['Collect aligned assessment evidence before choosing a reteaching response.']}
+    typ=types[-1];items=[];stats=report['assessments'][typ]
+    high=stats['highest_percent'];low=stats['lowest_percent']
+    if high is not None and low is not None and high-low>=25:
+        items.append(f'{typ.title()} scores span {low:.2f}%–{high:.2f}% ({high-low:.2f} points). Use flexible grouping: targeted scaffolded practice for students needing support and extension/application tasks for students already secure; confirm needs with item-level work before grouping.')
+    for oid,obj in report['objectives'].items():
+        evidence=obj['by_assessment'].get(typ,{});observed=evidence.get('observed_percent');target=obj['target_percent'];meeting=evidence.get('n_meeting_target',0);complete=evidence.get('n_complete_objective',0)
+        label=obj['label']
+        if observed is None:
+            items.append(f'{oid} ({label}): no {typ} estimate is available. Collect aligned evidence before making an instructional decision.')
+        elif observed < target:
+            gap=target-observed
+            items.append(f'{oid} ({label}): {observed:.2f}% is {gap:.2f} points below the {target:.2f}% local target; {meeting}/{complete} students met it. Reteach the underlying strategy with a worked example and error analysis, then use a short aligned exit ticket before advancing.')
+        elif complete and meeting/complete < .7:
+            items.append(f'{oid} ({label}): aggregate attainment is {observed:.2f}% against a {target:.2f}% target, but only {meeting}/{complete} students met it. Keep whole-class instruction moving while providing a targeted small-group check and additional aligned practice for students below target.')
+        else:
+            items.append(f'{oid} ({label}): {observed:.2f}% meets the {target:.2f}% local target and {meeting}/{complete} students met it. Maintain retrieval practice, offer an application/extension task, and verify retention with later aligned evidence.')
+    return {'assessment_type':typ,'items':items}
 
 def svg_bar(title,labels,series,filename,y_label='Percent',max_val=100):
     width=900;height=max(280,140+len(labels)*65);x0=270;plot=550;line=55
@@ -136,12 +159,15 @@ def main(argv=None):
     svg_bar('Objective-level observed points earned / possible', [f'{o}: {report["objectives"][o]["label"]}' for o in oid],series,out/'objective_attainment.svg')
     svg_radar(report,out/'objective_radar.svg')
     interactive_radar(report,out/'objective_radar.html')
-    md=['# Teaching objective attainment (anonymized)','',f'Course: {report["course"]}. Students represented: {report["students"]}.','','## Assessment summary','| Type | Complete n | Partial n | Missing n | Mean % of complete |','|---|---:|---:|---:|---:|']
-    for typ,v in report['assessments'].items():md.append(f'| {typ} | {v["n_complete"]} | {v["n_partial"]} | {v["n_missing"]} | {v["mean_percent"] if v["mean_percent"] is not None else "N/A"} |')
+    md=['# Teaching objective attainment (anonymized)','',f'Course: {report["course"]}. Students represented: {report["students"]}.','','## Assessment summary','Scores below use complete responses only; partial and missing responses are counted separately.','', '| Type | Complete n | Partial n | Missing n | Highest % | Lowest % | Mean % | Median % |','|---|---:|---:|---:|---:|---:|---:|---:|']
+    def shown(value):return value if value is not None else 'N/A'
+    for typ,v in report['assessments'].items():md.append(f'| {typ} | {v["n_complete"]} | {v["n_partial"]} | {v["n_missing"]} | {shown(v["highest_percent"])} | {shown(v["lowest_percent"])} | {shown(v["mean_percent"])} | {shown(v["median_percent"])} |')
     md+=['','![Mean scores](mean_scores.svg)','','## Objective evidence','| Objective | Assessment | Earned / Possible | Observed % | Students meeting local target |','|---|---|---:|---:|---:|']
     for id,obj in report['objectives'].items():
         for typ,v in obj['by_assessment'].items():md.append(f'| {id}: {obj["label"]} | {typ} | {v["earned_points"]}/{v["possible_points"]} | {v["observed_percent"] if v["observed_percent"] is not None else "N/A"} | {v["n_meeting_target"]}/{v["n_complete_objective"]} |')
-    md+=['','![Objective attainment](objective_attainment.svg)','','![Objective radar](objective_radar.svg)','','[Open the interactive objective radar](objective_radar.html) — choose an assessment and hover or focus each point for exact evidence.','','**Pre/post growth: NOT COMPARABLE.** '+report['growth_note'],'','Thresholds shown are teacher-defined planning indicators, not BC provincial letter-grade cutoffs. Diagnostic questions sample prerequisites; post-tests sample taught objectives; raw percentages are not equivalent constructs.','','## Teaching interpretation','Review lower-attainment objectives, inspect item distractors and student work, reteach prerequisite misconceptions and collect new aligned evidence. Do not infer causation from these scores alone.','']
+    md+=['','![Objective attainment](objective_attainment.svg)','','![Objective radar](objective_radar.svg)','','[Open the interactive objective radar](objective_radar.html) — choose an assessment and hover or focus each point for exact evidence.','','## Teaching recommendations',f'Recommendations below use the latest available assessment: **{report["teaching_recommendations"]["assessment_type"] or "none"}**. They support teacher judgment and do not establish causation.']
+    md+=['- '+item for item in report['teaching_recommendations']['items']]
+    md+=['','**Pre/post growth: NOT COMPARABLE.** '+report['growth_note'],'','Thresholds shown are teacher-defined planning indicators, not BC provincial letter-grade cutoffs. Diagnostic questions sample prerequisites; post-tests sample taught objectives; raw percentages are not equivalent constructs.','']
     if report['warnings']:md+=['## Data warnings']+['- '+x for x in report['warnings']]
     (out/'summary.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
     print('Created:',*(str(out/x) for x in ['report.json','summary.md','mean_scores.svg','objective_attainment.svg','objective_radar.svg','objective_radar.html']),sep='\n - ')
