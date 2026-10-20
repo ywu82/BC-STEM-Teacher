@@ -5,6 +5,23 @@ Portable AgentSkills-style folder for **BC Grades 10–12**, STEM-first (Mathema
 ## Install in OpenClaw
 Unzip and copy folder as `<workspace>/skills/bc-stem-teacher/SKILL.md` (with subdirectories). Restart/refresh agent skill discovery if needed. Invoke `/bc-stem-teacher` or request a STEM lesson. Reference: https://docs.openclaw.ai/tools/creating-skills . For other agent runtimes, place folder in their documented skills path or provide `SKILL.md` as agent instructions. The terminal must have Python 3 for analysis script, optional otherwise.
 
+## Install from GitHub
+
+Codex, Claude Code, and OpenClaw can install this skill directly from the public repository and verify the result. See [INSTALL.md](INSTALL.md) for:
+
+- a ready-to-paste agent installation prompt;
+- the cross-host `scripts/install_skill.sh` installer;
+- host-specific paths and native commands;
+- structural, inventory/readiness, and runtime-discovery checks.
+
+OpenClaw quick install:
+
+```bash
+openclaw skills install git:ywu82/BC-STEM-Teacher@main --as bc-stem-teacher --global
+openclaw skills info bc-stem-teacher --json
+openclaw skills check --json
+```
+
 ## Typical workflow
 `subject → objectives (typed or document) → plan (create or audit) → (materials / diagnostic) → (instructional quiz / test) → results → visual evidence & objective attainment`.
 

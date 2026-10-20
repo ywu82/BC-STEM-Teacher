@@ -1,7 +1,6 @@
 ---
 name: bc-stem-teacher
 description: "BC Grades 10–12 STEM teaching copilot: guided subject intake, verified curriculum objectives, plan generation/audit, slides and classroom resources, distinct diagnostic and instructional assessments, anonymized results and objective-attainment visual reports. Use with OpenClaw or AgentSkills-compatible Claude, OpenAI, Grok and other models."
-user-invocable: true
 ---
 # BC STEM Teacher Skill v3.0
 
