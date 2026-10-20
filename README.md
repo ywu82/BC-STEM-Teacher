@@ -10,6 +10,29 @@ Unzip and copy folder as `<workspace>/skills/bc-stem-teacher/SKILL.md` (with sub
 
 **Diagnostic and post-instruction assessments are distinct**, with different target constructs, timing and interpretation. See `references/assessment-design.md`.
 
+## Canonical eight-step workflow
+
+Use the following step and branch labels consistently:
+
+1. **Step 1 — Select and confirm the exact course**
+2. **Step 2 — Develop course-level learning objectives**
+3. **Step 3 — Select the teaching scope**
+   - Full Course
+   - Teaching Unit
+   - Single Lesson
+4. **Step 4 — Create or audit the instructional plan**
+5. **Step 5 — Pre-instruction preparation**
+   - **Step 5A — Prerequisite diagnostic**
+   - **Step 5B — Teaching materials**
+   - Steps 5A and 5B are independent branches and may be completed in either order.
+6. **Step 6 — Post-instruction assessment**
+   - **Step 6A — Post-instruction quiz**
+   - **Step 6B — Final unit test**
+7. **Step 7 — Import anonymized student results**
+8. **Step 8 — Analyze results and generate reports, charts, and objective-attainment evidence**
+
+Official BC curriculum verification is a required check within Steps 1–2, not a separate numbered step. Teacher approval and professional judgment apply throughout the workflow and are not an additional final step. Preserve these canonical labels in plans, manifests, status updates, filenames, and teacher approval gates.
+
 ## Demo
 `python3 scripts/analyze_results.py --input examples/sample-results.csv --items examples/sample-items.csv --objectives examples/sample-objectives.json --out demo-report`
 Inspect `demo-report/summary.md`, `report.json`, and `*.svg`. All example scores are synthetic. Tests: `python3 -m unittest discover -s tests -v`.
