@@ -87,6 +87,12 @@ Official BC curriculum verification is a required check within Steps 1–2, not 
 
 After installation, start a new session or refresh the agent's skill list. Select `bc-stem-teacher` with the host's skill picker if one is available, or mention the exact skill name in the prompt.
 
+Universal quick start:
+
+```text
+Use the `bc-stem-teacher` skill to start a new BC Grades 10–12 STEM teaching project.
+```
+
 Copy this prompt to begin a new teaching project:
 
 ```text
