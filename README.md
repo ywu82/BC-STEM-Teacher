@@ -83,9 +83,24 @@ Use the following step and branch labels consistently:
 
 Official BC curriculum verification is a required check within Steps 1–2, not a separate numbered step. Teacher approval and professional judgment apply throughout the workflow and are not an additional final step. Preserve these canonical labels in plans, manifests, status updates, filenames, and teacher approval gates.
 
-## Demo
-`python3 scripts/analyze_results.py --input examples/sample-results.csv --items examples/sample-items.csv --objectives examples/sample-objectives.json --out demo-report`
-Inspect `demo-report/summary.md`, `report.json`, and `*.svg`. All example scores are synthetic. Tests: `python3 -m unittest discover -s tests -v`.
+## Start using the skill
 
-## Scope / provenance
-`references/official-links.md` has authoritative entrypoints, not a locally scraped exhaustive curriculum database. Do not claim full provincial standards are bundled. V2 preserved in `legacy-v2` for continuity. The demonstration is NOT a validated psychometric instrument, and the skill is NOT a gradebook or connected SIS.
+After installation, start a new session or refresh the agent's skill list. Select `bc-stem-teacher` with the host's skill picker if one is available, or mention the exact skill name in the prompt.
+
+Copy this prompt to begin a new teaching project:
+
+```text
+Use the `bc-stem-teacher` skill to start a new BC Grades 10–12 STEM teaching project.
+
+Guide me through the canonical workflow one major stage at a time. Preserve the Step 1–8 numbering and the 5A/5B and 6A/6B branch labels. Ask for my approval at each required gate before continuing.
+
+Start at Step 1. Ask me for the subject, grade, and exact BC course if I have not already provided them.
+```
+
+If the subject and course are already known, include them in the first message, for example:
+
+```text
+Use the `bc-stem-teacher` skill. I teach Grade 12 Foundations of Mathematics in BC. Start at Step 1, retain what I have already supplied, and guide me one approved stage at a time.
+```
+
+The skill should respond with the current step, the known course context, and the single next input or approval it needs. Continue in the same conversation so the project manifest and approved decisions remain available.
