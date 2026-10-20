@@ -10,69 +10,34 @@ Any AgentSkills-compatible host can use the repository's `SKILL.md` and bundled 
 
 Python 3 is required only for the optional results-analysis script, not for loading the skill instructions.
 
-### Ask an agent to install it
+### One-prompt installation
 
-Give a supported agent this prompt:
-
-> Install the `bc-stem-teacher` skill from `https://github.com/ywu82/BC-STEM-Teacher`. Detect which AgentSkills-compatible host you are running in, read the repository README's **Installation and verification** section, use that host's official skill location or native installer, and do not overwrite local changes. Run the repository's verification script after installation. Report the installed path, Git revision, structural verification result, and runtime-discovery result. If runtime discovery requires a refreshed session, say so instead of claiming it succeeded.
-
-### Unified installer
-
-Clone a temporary copy, then run the installer for the current host:
-
-```bash
-install_tmp="$(mktemp -d)"
-git clone --depth 1 https://github.com/ywu82/BC-STEM-Teacher.git "$install_tmp/BC-STEM-Teacher"
-bash "$install_tmp/BC-STEM-Teacher/scripts/install_skill.sh" --host codex --scope user
-```
-
-Replace `codex` with `claude-code` or `openclaw`. Use `--scope project --workspace /absolute/project/path` for a project/workspace-only installation. For Codex and Claude Code, re-running the command updates a clean Git checkout by fast-forward and stops if the checkout has local changes. OpenClaw uses its native Git installer and refuses an existing destination unless the operator intentionally reviews and replaces it.
-
-### Host-specific installation
-
-#### Codex
-
-The installer places a user skill at `$CODEX_HOME/skills/bc-stem-teacher` when `CODEX_HOME` is configured; otherwise it uses the current official user location `~/.agents/skills/bc-stem-teacher`. A project skill is installed at `<project>/.agents/skills/bc-stem-teacher`.
-
-Codex can also use its built-in installer:
+Copy the same prompt into Codex, Claude Code, OpenClaw, or another AgentSkills-compatible agent:
 
 ```text
-$skill-installer install the skill from https://github.com/ywu82/BC-STEM-Teacher
+Install the `bc-stem-teacher` skill from this public GitHub repository:
+https://github.com/ywu82/BC-STEM-Teacher
+
+Complete the installation yourself. Follow these requirements:
+
+1. Detect the current agent host and its official user-level skill directory or native Git skill installer. Use user scope unless I explicitly request project/workspace scope.
+2. Inspect the repository's README.md, SKILL.md, and installation scripts before changing anything.
+3. For Codex, Claude Code, or OpenClaw, clone the repository into a temporary directory and run:
+
+   bash scripts/install_skill.sh --host <codex|claude-code|openclaw> --scope user
+
+   Run that command from the temporary clone and replace the host placeholder with the detected host. Codex may use its built-in `$skill-installer` for the GitHub repository instead, but it must still run the repository's verification script afterward.
+4. For another AgentSkills-compatible host, install the complete repository into that host's documented skill directory under the name `bc-stem-teacher`. Preserve SKILL.md and all bundled directories.
+5. Do not overwrite a non-Git installation, local changes, or a checkout connected to a different remote. If one is found, stop and report the exact conflict.
+6. Verify the installation at all levels the host supports:
+   - structural: SKILL.md, frontmatter, and required resources;
+   - inventory/readiness: the host reports the skill as installed and usable, when a non-interactive check exists;
+   - runtime discovery: a refreshed session can list or explicitly invoke `bc-stem-teacher`.
+7. Do not claim full success from file copying alone. If a new session or restart is required, report structural installation as complete and clearly state the remaining runtime check.
+8. Finish by reporting the detected host, installation scope, installed path, Git revision, verification results, and any restart/refresh instruction.
 ```
 
-Verify the files:
-
-```bash
-bash scripts/verify_install.sh --host codex --path ~/.agents/skills/bc-stem-teacher
-```
-
-Then start or refresh Codex, run `/skills`, and invoke `$bc-stem-teacher`. File verification alone does not prove runtime discovery.
-
-#### Claude Code
-
-The installer places a personal skill at `~/.claude/skills/bc-stem-teacher`, or a project skill at `<project>/.claude/skills/bc-stem-teacher`.
-
-Verify the files:
-
-```bash
-bash scripts/verify_install.sh --host claude-code --path ~/.claude/skills/bc-stem-teacher
-```
-
-Then start or refresh Claude Code and invoke `/bc-stem-teacher`. File verification alone does not prove runtime discovery.
-
-#### OpenClaw
-
-OpenClaw has a native Git installer:
-
-```bash
-openclaw skills install git:ywu82/BC-STEM-Teacher@main --as bc-stem-teacher --global
-openclaw skills info bc-stem-teacher --json
-openclaw skills check --json
-```
-
-Omit `--global` to install into the active workspace. The unified installer runs the same native workflow and verifies that the selected Gateway inventories the skill and completes its readiness check. Start or refresh an agent session before the final invocation test.
-
-Other AgentSkills-compatible hosts can clone the repository into their documented skills directory and use `scripts/verify_install.sh` as a structural reference, adapting the final runtime-discovery check to the host.
+The prompt delegates host detection, safe installation, and verification to the agent while keeping the requested outcome identical across hosts. The supplied installer supports `codex`, `claude-code`, and `openclaw`; other compatible hosts use their documented skill location.
 
 ### Verification levels
 
