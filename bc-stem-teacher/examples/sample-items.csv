@@ -1,0 +1,10 @@
+item_id,assessment_type,objective_id,max_points,cognitive_level,material_ids,comparable_group
+D1,diagnostic,O1,2,remember,,
+D2,diagnostic,O2,2,understand,,
+D3,diagnostic,O3,2,apply,,
+Q1,quiz,O1,2,understand,S2,
+Q2,quiz,O2,4,apply,S4,
+Q3,quiz,O3,4,reason,S5,
+T1,test,O1,3,understand,S2,
+T2,test,O2,5,apply,S4,
+T3,test,O3,6,transfer,S5,

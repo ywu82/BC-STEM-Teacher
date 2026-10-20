@@ -1,0 +1,2 @@
+# 03 Learning materials and slides
+Accept teacher plan and approved OIDs. Produce slide-by-slide: Slide ID, objective IDs, title, key ideas, one worked example, diagram spec, speaking notes, timed prompt, misconception, visual/accessibility notes. Include short instructor script and student worksheet/answers separately. If compatible deck-writing tools exist, produce actual slides with teacher consent; otherwise a copyable slide script in Markdown. Grade 10–12 readability, metric/SI units and explicit content accessibility. Never say a file was created unless produced.

@@ -1,0 +1,2 @@
+# Mathematics rules
+Ask exact course/pathway (Workplace Mathematics 10 vs Foundations of Mathematics and Pre-calculus 10; Grade 11/12 offerings differ). Objectives can concern procedures, representations, reasoning, modelling. Diagnostic checks pre-algebra/numeracy prerequisites at the right level; post-instruction includes explanation, context and transfer. Include worked solutions, error-path analysis and validate symbolic and numeric answer with substitution or independent strategy. A single numerical answer may not fully demonstrate reasoning objective.

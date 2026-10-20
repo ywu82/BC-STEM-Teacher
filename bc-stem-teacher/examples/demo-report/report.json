@@ -1,0 +1,153 @@
+{
+  "course": "Foundations of Mathematics and Pre-calculus 10",
+  "synthetic_or_real": "not determined by script",
+  "students": 6,
+  "assessments": {
+    "diagnostic": {
+      "n_complete": 6,
+      "n_partial": 0,
+      "n_missing": 0,
+      "possible_points_per_complete_student": 6.0,
+      "mean_percent": 47.22,
+      "median_percent": 50.0,
+      "distribution": {
+        "0-49": 2,
+        "50-69": 3,
+        "70-84": 1,
+        "85-100": 0
+      }
+    },
+    "quiz": {
+      "n_complete": 6,
+      "n_partial": 0,
+      "n_missing": 0,
+      "possible_points_per_complete_student": 10.0,
+      "mean_percent": 75.0,
+      "median_percent": 75.0,
+      "distribution": {
+        "0-49": 0,
+        "50-69": 2,
+        "70-84": 2,
+        "85-100": 2
+      }
+    },
+    "test": {
+      "n_complete": 6,
+      "n_partial": 0,
+      "n_missing": 0,
+      "possible_points_per_complete_student": 14.0,
+      "mean_percent": 77.38,
+      "median_percent": 78.57,
+      "distribution": {
+        "0-49": 0,
+        "50-69": 2,
+        "70-84": 1,
+        "85-100": 3
+      }
+    }
+  },
+  "objectives": {
+    "O1": {
+      "label": "Identify solution of a linear system",
+      "target_percent": 75.0,
+      "by_assessment": {
+        "diagnostic": {
+          "earned_points": 8.0,
+          "possible_points": 12.0,
+          "observed_percent": 66.67,
+          "n_observed": 6,
+          "n_complete_objective": 6,
+          "n_meeting_target": 3,
+          "pct_students_meeting_target": 50.0
+        },
+        "quiz": {
+          "earned_points": 10.0,
+          "possible_points": 12.0,
+          "observed_percent": 83.33,
+          "n_observed": 6,
+          "n_complete_objective": 6,
+          "n_meeting_target": 4,
+          "pct_students_meeting_target": 66.67
+        },
+        "test": {
+          "earned_points": 15.0,
+          "possible_points": 18.0,
+          "observed_percent": 83.33,
+          "n_observed": 6,
+          "n_complete_objective": 6,
+          "n_meeting_target": 3,
+          "pct_students_meeting_target": 50.0
+        }
+      }
+    },
+    "O2": {
+      "label": "Solve systems using substitution or elimination",
+      "target_percent": 70.0,
+      "by_assessment": {
+        "diagnostic": {
+          "earned_points": 6.0,
+          "possible_points": 12.0,
+          "observed_percent": 50.0,
+          "n_observed": 6,
+          "n_complete_objective": 6,
+          "n_meeting_target": 1,
+          "pct_students_meeting_target": 16.67
+        },
+        "quiz": {
+          "earned_points": 18.0,
+          "possible_points": 24.0,
+          "observed_percent": 75.0,
+          "n_observed": 6,
+          "n_complete_objective": 6,
+          "n_meeting_target": 4,
+          "pct_students_meeting_target": 66.67
+        },
+        "test": {
+          "earned_points": 23.0,
+          "possible_points": 30.0,
+          "observed_percent": 76.67,
+          "n_observed": 6,
+          "n_complete_objective": 6,
+          "n_meeting_target": 4,
+          "pct_students_meeting_target": 66.67
+        }
+      }
+    },
+    "O3": {
+      "label": "Interpret a solution in context",
+      "target_percent": 70.0,
+      "by_assessment": {
+        "diagnostic": {
+          "earned_points": 3.0,
+          "possible_points": 12.0,
+          "observed_percent": 25.0,
+          "n_observed": 6,
+          "n_complete_objective": 6,
+          "n_meeting_target": 0,
+          "pct_students_meeting_target": 0.0
+        },
+        "quiz": {
+          "earned_points": 17.0,
+          "possible_points": 24.0,
+          "observed_percent": 70.83,
+          "n_observed": 6,
+          "n_complete_objective": 6,
+          "n_meeting_target": 4,
+          "pct_students_meeting_target": 66.67
+        },
+        "test": {
+          "earned_points": 27.0,
+          "possible_points": 36.0,
+          "observed_percent": 75.0,
+          "n_observed": 6,
+          "n_complete_objective": 6,
+          "n_meeting_target": 3,
+          "pct_students_meeting_target": 50.0
+        }
+      }
+    }
+  },
+  "warnings": [],
+  "growth_comparable": false,
+  "growth_note": "Not calculated: different pre/post items, constructs or scales may not be equivalent. Comparable anchor design and matched cohort validation required."
+}

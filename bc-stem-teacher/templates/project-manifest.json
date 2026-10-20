@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "project_id": "P1",
+  "jurisdiction": "BC",
+  "grade": null,
+  "subject": null,
+  "exact_course": null,
+  "stage": "choose_subject",
+  "objectives": [],
+  "objective_approval_status": "PENDING_TEACHER_REVIEW",
+  "teaching_scope": {
+    "type": null,
+    "label": null,
+    "parent_objective_ids": [],
+    "time_constraint": null,
+    "scope_objectives": [],
+    "approval_status": "NOT_STARTED"
+  },
+  "plan_source": null,
+  "material_ids": [],
+  "assessment_ids": [],
+  "curriculum_status": "UNVERIFIED",
+  "source_urls": [],
+  "data_policy": "pseudonyms_only"
+}

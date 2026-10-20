@@ -1,0 +1,2 @@
+# 01 Teaching objective intake
+Ask teacher to enter objectives or upload source document; if neither, offer to draft provisional goals after grade/course is known. Parse attachment only when tool access exists; show extracted statements before refinement. Normalize into OIDs with SMART-style observable success criteria and prerequisites. Run official course verification. Deliver objective table, source flags and uncertainty. Ask teacher to approve/refine objectives before downstream assessment blueprint.

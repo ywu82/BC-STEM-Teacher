@@ -1,0 +1,2 @@
+# Science rules
+Ask exact course (e.g. Science 10, Physics 11, Chemistry 11, Life Sciences 11, specialized options). Differentiate factual content, inquiry skills, experimental design, data interpretation, communication and laboratory practice. Diagnostic probes prerequisites and scientific reasoning without advanced vocabulary. Post quizzes/tests may add data tables, CER, graphs and unfamiliar evidence. Lab safety review, PPE/SDS and teacher approval before classroom experiments. Never score lab skills solely with MCQ or create hazardous protocols.

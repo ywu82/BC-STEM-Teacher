@@ -1,0 +1,21 @@
+{
+  "course": "Foundations of Mathematics and Pre-calculus 10",
+  "threshold": 0.7,
+  "objectives": [
+    {
+      "id": "O1",
+      "label": "Identify solution of a linear system",
+      "target": 0.75
+    },
+    {
+      "id": "O2",
+      "label": "Solve systems using substitution or elimination",
+      "target": 0.7
+    },
+    {
+      "id": "O3",
+      "label": "Interpret a solution in context",
+      "target": 0.7
+    }
+  ]
+}
