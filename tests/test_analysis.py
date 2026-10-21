@@ -1,7 +1,7 @@
 import unittest,sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from analyze_results import validate_and_analyze,interactive_radar,svg_radar
+from analyze_results import validate_and_analyze,interactive_radar,svg_radar,teacher_report
 class TestAnalysis(unittest.TestCase):
  def setUp(self):
   self.items=[{'item_id':'D1','assessment_type':'diagnostic','objective_id':'O1','max_points':'2'}, {'item_id':'Q1','assessment_type':'quiz','objective_id':'O1','max_points':'4'}]
@@ -43,4 +43,19 @@ class TestAnalysis(unittest.TestCase):
    s=Path(d)/'objective_radar.svg';svg_radar(r,s);svg=s.read_text(encoding='utf-8')
    self.assertIn('Objective attainment radar',svg)
    self.assertNotIn('P01',svg)
+ def test_teacher_report_is_single_teacher_facing_entry(self):
+  from tempfile import TemporaryDirectory
+  cfg={**self.cfg,'course':'Demo course','data_provenance':'SYNTHETIC / DEMO','curriculum_status':'PROVISIONAL'}
+  r=validate_and_analyze([{'student_id':'P01','assessment_type':'diagnostic','item_id':'D1','points':'1'}],[self.items[0]],cfg)
+  with TemporaryDirectory() as d:
+   p=Path(d)/'teacher_report.html';teacher_report(r,p);content=p.read_text(encoding='utf-8')
+   self.assertIn('Student Learning Evidence Report',content)
+   self.assertIn('SYNTHETIC / DEMO',content)
+   self.assertIn('Assessment summary',content)
+   self.assertIn('Recommended next teaching moves',content)
+   self.assertNotIn('P01',content)
+ def test_provenance_is_preserved_from_config(self):
+  cfg={**self.cfg,'data_provenance':'SYNTHETIC / DEMO'}
+  r=validate_and_analyze([],self.items,cfg)
+  self.assertEqual(r['synthetic_or_real'],'SYNTHETIC / DEMO')
 if __name__=='__main__':unittest.main()

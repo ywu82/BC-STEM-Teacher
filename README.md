@@ -75,15 +75,18 @@ Use the following step and branch labels consistently:
    - **Step 5A — Prerequisite diagnostic**
    - **Step 5B — Teaching materials**
    - Steps 5A and 5B are independent branches and may be completed in either order.
+   - All Step 5 deliverables are self-contained HTML files that open directly, support agent/browser preview when available, and include a browser-based Print / Save as PDF control. Ordinary student pages and teacher answer pages remain separate; Step 5A is the explicit exception and uses one self-checking `diagnostic.html` with student-safe per-option feedback.
 6. **Step 6 — Post-instruction assessment**
    - **Step 6A — Post-instruction quiz**
    - **Step 6B — Final unit test**
 7. **Step 7 — Import anonymized student results**
 8. **Step 8 — Analyze results and generate reports, charts, and objective-attainment evidence**
+   - Give teachers one primary English deliverable, `teacher_report.html`, containing the complete report and interactive objective view. Keep CSV, JSON, Markdown and individual chart files as background audit/fallback artifacts rather than parallel teacher-facing choices.
+   - Also summarize the actionable report evidence directly in the conversation, using the teacher's current language: the priority, assessment statistics, latest objective attainment, an inline radar chart, next teaching moves, warnings and interpretation limits. Use a verified static radar image when interactive chat widgets are unavailable. The HTML expands this brief; it does not replace it.
    - Report the highest, lowest, mean, and median percentage for every assessment using complete responses, alongside missingness and score distributions.
    - Provide evidence-linked teaching recommendations for objective gaps, uneven attainment, differentiation, reteaching, and the next aligned check for learning.
    - On hosts with interactive chat widgets, display a radar chart in the conversation with one axis and visible percentage per objective; hover or keyboard focus reveals the exact evidence and local target.
-   - On other hosts, provide the same interactive chart as `objective_radar.html` plus `objective_radar.svg` and an objective table, so the report remains portable.
+   - On other hosts, deliver `teacher_report.html`; retain `objective_radar.html`, `objective_radar.svg` and the objective table as portability and accessibility fallbacks.
 
 Official BC curriculum verification is a required check within Steps 1–2, not a separate numbered step. Teacher approval and professional judgment apply throughout the workflow and are not an additional final step. Preserve these canonical labels in plans, manifests, status updates, filenames, and teacher approval gates.
 

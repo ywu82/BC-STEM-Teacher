@@ -1,6 +1,7 @@
 {
   "course": "Foundations of Mathematics and Pre-calculus 10",
-  "synthetic_or_real": "not determined by script",
+  "synthetic_or_real": "SYNTHETIC / DEMO \u2014 no real student data",
+  "curriculum_status": "PROVISIONAL \u2014 demonstration objectives, not verified Ministry wording",
   "students": 6,
   "assessments": {
     "diagnostic": {

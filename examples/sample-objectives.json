@@ -1,5 +1,7 @@
 {
   "course": "Foundations of Mathematics and Pre-calculus 10",
+  "data_provenance": "SYNTHETIC / DEMO — no real student data",
+  "curriculum_status": "PROVISIONAL — demonstration objectives, not verified Ministry wording",
   "threshold": 0.7,
   "objectives": [
     {

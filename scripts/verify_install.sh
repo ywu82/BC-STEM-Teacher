@@ -127,7 +127,7 @@ description_line="$(printf '%s\n' "$frontmatter" | sed -n 's/^description:[[:spa
   exit 1
 }
 
-for required in workflows references templates scripts/analyze_results.py; do
+for required in workflows references templates scripts/analyze_results.py scripts/validate_step5_html.py templates/step5-html-shell.html; do
   [[ -e "$skill_path/$required" ]] || {
     echo "Missing required skill resource: $skill_path/$required" >&2
     exit 1
