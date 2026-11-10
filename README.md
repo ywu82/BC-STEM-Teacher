@@ -1,4 +1,4 @@
-# BC STEM Teacher Skill v3.0
+# BC STEM Teacher Skill v0.3
 
 Portable AgentSkills-style folder for **BC Grades 10–12**, STEM-first (Mathematics, Science and course-specific ADST/Computer Science). Claude, OpenAI, Grok and OpenClaw can use the *instructions* if their host loads AgentSkills or injects `SKILL.md`; **a model API by itself does not automatically discover skills**. Pure-Python standard-library analysis script creates SVG graphics without model lock-in.
 
