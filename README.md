@@ -56,7 +56,7 @@ Do not report full installation success until the checks available for that host
 - [OpenClaw: Skills CLI](https://docs.openclaw.ai/cli/skills)
 
 ## Typical workflow
-`subject → objectives (typed or document) → plan (create or audit) → (materials / diagnostic) → (instructional quiz / test) → results → visual evidence & objective attainment`.
+`Step 1 course → Step 2 objectives → Step 3 scope → Step 4 plan → Step 5A diagnostic / Step 5B materials → Step 6A quiz / Step 6B test → Step 7 results import → Step 8 analysis and reporting`.
 
 **Diagnostic and post-instruction assessments are distinct**, with different target constructs, timing and interpretation. See `references/assessment-design.md`.
 
@@ -89,6 +89,21 @@ Use the following step and branch labels consistently:
    - On other hosts, deliver `teacher_report.html`; retain `objective_radar.html`, `objective_radar.svg` and the objective table as portability and accessibility fallbacks.
 
 Official BC curriculum verification is a required check within Steps 1–2, not a separate numbered step. Teacher approval and professional judgment apply throughout the workflow and are not an additional final step. Preserve these canonical labels in plans, manifests, status updates, filenames, and teacher approval gates.
+
+### Canonical workflow files
+
+- Step 1: `workflows/01-course-selection.md`
+- Step 2: `workflows/02-objectives.md`
+- Step 3: `workflows/03-scope-selection.md`
+- Step 4: `workflows/04-plan.md`
+- Step 5A: `workflows/05a-diagnostic.md`
+- Step 5B: `workflows/05b-materials.md`
+- Step 6A: `workflows/06a-quiz.md`
+- Step 6B: `workflows/06b-test.md`
+- Step 7: `workflows/07-results-import.md`
+- Step 8: `workflows/08-analysis-reporting.md`
+
+Every report and report-like artifact defaults to English. A different report language is used only when the teacher explicitly names it. Teacher-facing reports are delivered as rendered, self-contained HTML rather than Markdown source files.
 
 ## Start using the skill
 

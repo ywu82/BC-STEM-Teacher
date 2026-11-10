@@ -1,13 +1,34 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "2.0",
   "project_id": "P1",
   "jurisdiction": "BC",
-  "grade": null,
-  "subject": null,
-  "exact_course": null,
-  "stage": "choose_subject",
+  "report_language": "en",
+  "workflow": {
+    "canonical_version": "1.0",
+    "current_step": "1",
+    "current_branch": null,
+    "steps": {
+      "1": {"label": "Select and confirm the exact course", "status": "IN_PROGRESS", "approval_status": "PENDING_TEACHER_REVIEW"},
+      "2": {"label": "Develop course-level learning objectives", "status": "NOT_STARTED", "approval_status": "NOT_STARTED"},
+      "3": {"label": "Select the teaching scope", "status": "NOT_STARTED", "approval_status": "NOT_STARTED"},
+      "4": {"label": "Create or audit the instructional plan", "status": "NOT_STARTED", "approval_status": "NOT_STARTED"},
+      "5A": {"label": "Prerequisite diagnostic", "status": "NOT_STARTED", "approval_status": "NOT_STARTED"},
+      "5B": {"label": "Teaching materials", "status": "NOT_STARTED", "approval_status": "NOT_STARTED"},
+      "6A": {"label": "Post-instruction quiz", "status": "NOT_STARTED", "approval_status": "NOT_STARTED"},
+      "6B": {"label": "Final unit test", "status": "NOT_STARTED", "approval_status": "NOT_STARTED"},
+      "7": {"label": "Import anonymized student results", "status": "NOT_STARTED", "approval_status": "NOT_STARTED"},
+      "8": {"label": "Analyze results and generate reports, charts, and objective-attainment evidence", "status": "NOT_STARTED", "approval_status": "NOT_STARTED"}
+    }
+  },
+  "course": {
+    "grade": null,
+    "subject": null,
+    "exact_course": null,
+    "curriculum_status": "UNVERIFIED",
+    "source_urls": [],
+    "verified_date": null
+  },
   "objectives": [],
-  "objective_approval_status": "PENDING_TEACHER_REVIEW",
   "teaching_scope": {
     "type": null,
     "label": null,
@@ -16,11 +37,16 @@
     "scope_objectives": [],
     "approval_status": "NOT_STARTED"
   },
-  "plan_source": null,
-  "material_ids": [],
+  "instructional_plan": {
+    "source": null,
+    "artifact_path": null,
+    "audit_artifact_path": null,
+    "audit_verdict": null,
+    "approval_status": "NOT_STARTED"
+  },
   "step5_html_artifacts": [],
-  "assessment_ids": [],
-  "curriculum_status": "UNVERIFIED",
-  "source_urls": [],
+  "assessments": [],
+  "results_imports": [],
+  "step8_reports": [],
   "data_policy": "pseudonyms_only"
 }

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{REPORT_TITLE}}</title>
+  <style>
+    :root{color-scheme:light;--ink:#172033;--muted:#667085;--line:#d9dee8;--paper:#fff;--bg:#eef2f7;--orange:#9a4d00;--orange-bg:#fff3d6;--orange-line:#e7a72f;--green:#0f6848;--green-bg:#e7f7ef;--green-line:#54a77d;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);line-height:1.5}.page{max-width:980px;margin:auto;padding:28px}.top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}.eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}h1{margin:.25rem 0;font-size:clamp(1.8rem,4vw,2.7rem)}h2{font-size:1.2rem;margin:0 0 12px}.toolbar button{font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;cursor:pointer}.panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:18px;box-shadow:0 5px 18px rgba(16,24,40,.05)}.verdict{border-left:7px solid}.verdict.revision{background:var(--orange-bg);border-color:var(--orange-line);color:var(--orange)}.verdict.ready{background:var(--green-bg);border-color:var(--green-line);color:var(--green)}.badge{display:inline-flex;padding:6px 11px;border:1px solid currentColor;border-radius:999px;font-weight:850}.change{border-left:5px solid var(--orange-line);background:var(--orange-bg);padding:14px 16px;margin:12px 0}.why{font-weight:750}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:.78rem;text-transform:uppercase;letter-spacing:.03em;color:var(--muted)}.notes,.footer{color:var(--muted)}.footer{font-size:.84rem}.scroll{overflow:auto}@media(max-width:650px){.page{padding:16px}.top{display:block}.toolbar{margin-top:12px}}@media print{body{background:#fff}.page{max-width:none;padding:0}.toolbar{display:none}.panel{box-shadow:none;break-inside:avoid}.change{break-inside:avoid}}
+  </style>
+</head>
+<body>
+<main class="page">
+  <header class="top">
+    <div><div class="eyebrow">Step 4 · Instructional plan audit</div><h1>{{REPORT_TITLE}}</h1><p class="notes">{{COURSE_AND_SCOPE}}</p></div>
+    <div class="toolbar"><button type="button" onclick="window.print()">Print / Save as PDF</button></div>
+  </header>
+
+  <!-- Set VERDICT_CLASS to revision or ready. Fill exactly one current verdict. -->
+  <section class="panel verdict {{VERDICT_CLASS}}" aria-labelledby="verdict-heading">
+    <div class="badge" id="verdict-heading">{{VERDICT_TEXT}}</div>
+    <p><strong>May proceed to Step 5:</strong> {{PROCEED_DECISION}}</p>
+  </section>
+
+  <section class="panel">
+    <h2>Objective alignment</h2>
+    <div class="scroll"><table><thead><tr><th>Objective</th><th>Coverage 0/1/2</th><th>Plan evidence</th><th>Decision</th></tr></thead><tbody>{{OBJECTIVE_ROWS}}</tbody></table></div>
+  </section>
+
+  <!-- Remove this entire section when the verdict is Ready to Use. -->
+  <section class="panel" id="required-changes">
+    <h2>Required changes</h2>
+    <div class="change"><strong>{{REQUIRED_CHANGE}}</strong><div class="why">Why: {{REASON}}</div></div>
+  </section>
+
+  <section class="panel notes" id="non-blocking-notes">
+    <h2>Non-blocking notes</h2>
+    <p>{{OPTIONAL_NOTES}}</p>
+  </section>
+
+  <footer class="panel footer">Source plan: {{SOURCE_PLAN}} · Audit date: {{AUDIT_DATE}} · Curriculum status: {{CURRICULUM_STATUS}} · The imported plan remains unchanged.</footer>
+</main>
+</body>
+</html>

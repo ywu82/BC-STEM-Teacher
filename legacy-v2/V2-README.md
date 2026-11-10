@@ -1,8 +1,9 @@
 # BC High School Teacher Skill V2
 Teacher copilot for BC Grades 10–12: Mathematics, Science and ELA.
 
-## Install
-Copy the `bc-high-school-teacher-v2` folder into your agent's skills directory. The loader should expose `SKILL.md` as the skill entry point and allow on-demand reading of sibling files. Environment/agent-specific install paths vary.
+## Archive status
+
+Do not install this directory as a skill. It is retained only as historical design context and does not contain the sibling resources required by the former V2 router. Install and use the repository-root `SKILL.md` instead.
 
 ## V2 additions
 Dedicated subject engines, workflow router, curriculum validation protocol, course navigation index, unit and assessment templates, QA checklist and test prompts.
@@ -11,4 +12,5 @@ Dedicated subject engines, workflow router, curriculum validation protocol, cour
 This package is a **procedural skill**, not an offline licensed repository of all BC learning standards. Exact provincial course alignment needs access to current official curriculum sources. Rubrics and lesson designs are generated drafts, not Ministry-issued documents.
 
 ## Validation
-Test each prompt in `examples/three-subject-requests.md`; confirm source links, alignment status, answer-key correctness, safety and privacy before classroom deployment.
+
+No V2 runtime validation is supported. Use the root V3 tests and verification scripts.

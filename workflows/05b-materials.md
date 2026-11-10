@@ -1,4 +1,9 @@
-# 03 Learning materials and slides — HTML-first
+# Step 5B — Teaching materials
+
+## Trigger and outcome
+
+Run after Step 4 approval when the teacher requests the independent materials branch. Produce the approved set of teacher-ready and student-ready HTML materials aligned to the plan and OIDs.
+
 Accept the teacher plan and approved OIDs. Produce every Step 5B deliverable as a self-contained HTML file that opens directly in a modern browser, works offline, and has no external scripts, stylesheets, fonts or images. Use `templates/step5-html-shell.html` as the base.
 
 For presentation/courseware artifacts only, create a classroom-ready Microsoft PowerPoint-style 16:9 single-page HTML deck. Show exactly one slide at a time; advance by clicking the page, Right Arrow, Space, Page Down or an explicit Next control, and go back with Left Arrow, Page Up or Previous. Preserve keyboard-accessible controls, slide count/progress, full-screen mode and one coherent screen per slide. Let the user choose or revise the visual theme and transition/reveal animations, while keeping the PowerPoint presentation structure invariant; keep motion restrained and support `prefers-reduced-motion`. Each slide records its Slide ID and objective IDs and includes a title, key ideas, one worked example where applicable, an inline SVG/CSS diagram when needed, speaking notes, a timed prompt, a misconception check, and visual/accessibility notes. These presentation rules do not apply to teacher notes, student handouts, worksheets, diagnostics, answer keys, or reports, which retain ordinary document/report layouts. Teacher notes may appear in a separate teacher HTML, but do not expose them in a student-facing page.
@@ -8,3 +13,7 @@ Create student handouts, worksheets and teacher answer versions as separate HTML
 Every file includes a visible **Print / Save as PDF** button calling `window.print()`. For slide decks, `@media print` must override the single-slide presentation state: reveal every slide and staged fragment, remove transforms/transitions, hide controls and print all slides in document order with exactly one slide per PDF page. Never export only the currently visible slide. For other documents, print styling removes controls, avoids clipped content and creates sensible page breaks. This opens the browser print dialog, where the teacher can select Save as PDF; do not claim that a PDF was created until one was actually exported.
 
 Persist completed HTML inside the active workspace, not `/tmp`, and keep it host-neutral so it opens from `file://` without an agent runtime. Use the current AgentSkills host's native file attachment, artifact preview, browser or app-preview mechanism and verify the result. In OpenClaw Control UI/WebChat specifically, serve the material through an authenticated Portal and use `screen portal_show`; this is a delivery adapter, not an artifact dependency. Provide a verified screenshot preview when inline HTML is unavailable. Before delivery run `python3 {baseDir}/scripts/validate_step5_html.py <files...>`, open every file in an available browser renderer, inspect the initial view, exercise navigation when present, and verify print layout or PDF export. Never say a file was created, attached or previewed unless that action occurred.
+
+## Persistence and done
+
+Register every artifact ID, branch `5B`, audience, type, path, OIDs, language, validation status, and preview status in the project manifest. Step 5B is complete only when all promised files are present, audience boundaries are correct, and rendering/print checks pass. Step 5A may be completed before or after Step 5B.

@@ -1,20 +1,19 @@
 ---
 name: bc-high-school-teacher
-description: BC Grades 10–12 teacher copilot for Mathematics, Science and English Language Arts. Use for verified provincial curriculum alignment, unit and lesson plans, assignments, differentiation, assessments, rubrics, marking support, reporting comments and classroom materials. Do not apply this profile to K–9 reporting.
+description: Archived V2 design notes for the BC Grades 10–12 teacher skill. Do not invoke; use the repository-root SKILL.md.
+disable-model-invocation: true
 ---
 
 # BC High School Teacher — V2.0
 
+> **Archive only.** This file preserves historical design guidance but is not an installable or executable skill package. Its former sibling resources are not included in V3. Use `../SKILL.md` and the root `workflows/` directory for the current implementation.
+
 ## Purpose and boundaries
 Support **human teachers** in BC Grades 10–12. Scope: Mathematics, Science, English Language Arts (including English First Peoples where the course is explicitly chosen). Produce teacher-ready and student-ready artifacts. Reports default to English regardless of the conversation language; use another language only when the user explicitly names it. Final pedagogical decisions, grades, safety approvals and student accommodations are the teacher's responsibility.
 
-## Router — read only files needed for the task
-1. Parse requested `intent`, `subject`, `grade`, **exact provincial course**, `topic`, `lesson_length`, `student_profile`, `deliverables`, `language`. If essential course ambiguity affects alignment, ask one concise question; otherwise continue with declared assumptions.
-2. Read `references/curriculum-validation.md`, `references/official-sources.md`, `references/course-catalog.md`. Course lists are navigation hints, **not embedded verified learning standards**.
-3. Route subject-specific pedagogical logic: `subjects/mathematics.md`, `subjects/science.md`, or `subjects/english-language-arts.md`.
-4. Route intent: `workflows/curriculum-align.md`, `workflows/lesson-and-unit.md`, `workflows/assessment.md`, `workflows/feedback-reporting.md`, `workflows/classroom-resources.md`, or `workflows/adapt-and-support.md`.
-5. When providing a lesson, use `templates/lesson-plan.md`; a unit uses `templates/unit-plan.md`; assessment uses `templates/assessment-rubric.md` and `templates/assessment-package.md`; reporting uses `templates/report-comment.md`.
-6. Check `references/quality-checklist.md` before delivery.
+## Historical router note
+
+The original V2 router depended on subject, workflow, reference, and template files that are no longer shipped. Those broken resource pointers have been removed. The canonical V3 Step 1–8 router at the repository root supersedes this design.
 
 ## Mandatory universal execution sequence
 **Intake → Source verification → Outcome mapping → Design → Accessibility/safety → QA → Delivery.**

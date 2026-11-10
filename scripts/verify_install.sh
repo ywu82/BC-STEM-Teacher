@@ -127,7 +127,13 @@ description_line="$(printf '%s\n' "$frontmatter" | sed -n 's/^description:[[:spa
   exit 1
 }
 
-for required in workflows references templates scripts/analyze_results.py scripts/validate_step5_html.py templates/step5-html-shell.html; do
+for required in \
+  workflows references templates \
+  workflows/01-course-selection.md workflows/02-objectives.md workflows/03-scope-selection.md workflows/04-plan.md \
+  workflows/05a-diagnostic.md workflows/05b-materials.md workflows/06a-quiz.md workflows/06b-test.md \
+  workflows/07-results-import.md workflows/08-analysis-reporting.md \
+  scripts/analyze_results.py scripts/validate_step5_html.py scripts/validate_plan_audit_html.py \
+  templates/step5-html-shell.html templates/plan-audit.html; do
   [[ -e "$skill_path/$required" ]] || {
     echo "Missing required skill resource: $skill_path/$required" >&2
     exit 1

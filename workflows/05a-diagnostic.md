@@ -1,4 +1,9 @@
-# 04 Diagnostic quiz (BEFORE teaching; independent HTML branch)
+# Step 5A — Prerequisite diagnostic
+
+## Trigger and outcome
+
+Run after Step 4 approval when the teacher requests the independent diagnostic branch. Produce one low-stakes, self-checking `diagnostic.html` that measures prerequisites rather than newly taught content.
+
 Do not base diagnostic questions on newly generated slides unless the point is a preexisting skill. Read approved objectives and prerequisite map. Create one self-contained `diagnostic.html` from `templates/step5-html-shell.html`: short, low-stakes and predominantly foundation-level D1...Dn with zero-pressure instructions. Use a NotebookLM Quiz-like responsive interaction rather than the PowerPoint slide-deck layout: show one question card at a time, offer accessible selectable answer cards, display question count and progress, provide Previous/Next navigation, and preserve responses during the browser session.
 
 Every selectable option has verified immediate feedback. A wrong choice explains specifically why it is wrong, identifies the likely misconception in student-safe language, gives a concise corrective hint and allows Retry or Continue. A correct choice confirms the concept with a brief explanation. The final summary reports question outcomes and prerequisite areas to revisit without assigning an official grade or fixed ability label. Treat “NotebookLM Quiz-like” as interaction and visual guidance rather than brand impersonation. Keep private teacher notes, grading decisions and identifiable data out of the file. Print mode reveals every question and all feedback in order.
@@ -6,3 +11,7 @@ Every selectable option has verified immediate feedback. A wrong choice explains
 The file opens directly in a browser, works offline, uses semantic accessible markup, and includes a visible **Print / Save as PDF** button calling `window.print()` plus an `@media print` stylesheet. This opens the browser print dialog; do not claim a PDF exists until it was actually exported. No un-taught jargon or hidden multi-step novelty that distorts readiness. Define the no-grade policy. Results guide teaching adaptations; do not label students as fixed ability groups.
 
 Persist the file inside the active workspace, not `/tmp`, and keep it host-neutral so it opens from `file://` without an agent runtime. Use the current AgentSkills host's native file attachment, artifact preview, browser or app-preview mechanism and verify the result. In OpenClaw Control UI/WebChat specifically, serve it through an authenticated Portal and use `screen portal_show`; this is a delivery adapter, not an artifact dependency. Provide a verified screenshot when inline HTML is unavailable. Before delivery run `python3 {baseDir}/scripts/validate_step5_html.py diagnostic.html`, render it in an available browser, exercise correct and incorrect option paths plus Retry/Continue, inspect the summary, and verify the print layout.
+
+## Persistence and done
+
+Register the artifact ID, branch `5A`, objective/prerequisite mapping, path, language, validation status, and preview status in the project manifest. Step 5A is complete only when all response paths and print output are verified. Step 5B may be completed before or after Step 5A.
